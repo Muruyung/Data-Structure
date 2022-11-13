@@ -2,33 +2,35 @@ package main
 
 import (
 	"fmt"
-	doublelist "strukdat/double_list"
-	singlelist "strukdat/single_list"
+	"strukdat/datastruct"
 )
 
 func main() {
 	// Single List Example
-	singlelist.PushHead(112233, "Jakarta")
-	singlelist.PushHead(123321, "Bandung")
-	singlelist.PushTail(332113, "Cianjur")
+	singleList := datastruct.NewSingleList().
+		PushHead("Muruyung", 23).
+		PushHead("Sir", 17).
+		PushTail("Naufal", 22)
 
-	singlelist.Print()
+	singleList.Print()
 
-	singlelist.PopTail()
+	singleList = singleList.PopTail()
 	fmt.Println()
-	singlelist.Print()
+	singleList.Print()
 
 	fmt.Println()
+
 	// Double List Example
-	doublelist.PushHead(112233, "Jakarta")
-	doublelist.PushHead(123321, "Bandung")
-	doublelist.PushTail(332113, "Cianjur")
+	doubleList := datastruct.NewDoubleList().
+		PushHead("Muruyung", 23).
+		PushHead("Sir", 17).
+		PushTail("Naufal", 22)
 
-	doublelist.PrintFromHead()
+	doubleList.PrintFromHead()
 	fmt.Println()
-	doublelist.PrintFromTail()
+	doubleList.PrintFromTail()
 	fmt.Println()
 
-	doublelist.PopTail()
-	doublelist.PrintFromHead()
+	doubleList = doubleList.PopTail()
+	doubleList.PrintFromHead()
 }
