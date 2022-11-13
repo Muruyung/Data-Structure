@@ -47,6 +47,7 @@ func (data doubleListClient) PushHead(name string, age int) doubleListClient {
 		mahasiswa.next = data.head
 		data.head = mahasiswa
 	}
+	data.length++
 
 	return data
 }
@@ -66,6 +67,7 @@ func (data doubleListClient) PushTail(name string, age int) doubleListClient {
 		mahasiswa.prev = data.tail
 		data.tail = mahasiswa
 	}
+	data.length++
 
 	return data
 }
@@ -74,12 +76,15 @@ func (data doubleListClient) PushTail(name string, age int) doubleListClient {
 func (data doubleListClient) PopHead() doubleListClient {
 	if data.head == nil {
 		fmt.Println("No Data")
-	} else if data.head == data.tail {
-		data.head = nil
-		data.tail = nil
 	} else {
-		data.head = data.head.next
-		data.head.prev = nil
+		if data.head == data.tail {
+			data.head = nil
+			data.tail = nil
+		} else {
+			data.head = data.head.next
+			data.head.prev = nil
+		}
+		data.length--
 	}
 
 	return data
@@ -89,12 +94,15 @@ func (data doubleListClient) PopHead() doubleListClient {
 func (data doubleListClient) PopTail() doubleListClient {
 	if data.tail == nil {
 		fmt.Println("No Data")
-	} else if data.head == data.tail {
-		data.head = nil
-		data.tail = nil
 	} else {
-		data.tail = data.tail.prev
-		data.tail.next = nil
+		if data.head == data.tail {
+			data.head = nil
+			data.tail = nil
+		} else {
+			data.tail = data.tail.prev
+			data.tail.next = nil
+		}
+		data.length--
 	}
 
 	return data

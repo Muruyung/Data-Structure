@@ -53,6 +53,14 @@ func TestSingleListPushTail(t *testing.T) {
 func TestSingleListPopHead(t *testing.T) {
 	t.Run("success", func(t *testing.T) {
 		singleList := NewSingleList().
+			PopHead().
+			PushHead("test1", 1).
+			PopHead()
+		assert.Equal(t, 0, singleList.Length())
+		assert.Nil(t, singleList.head)
+		assert.Nil(t, singleList.tail)
+
+		singleList = singleList.
 			PushHead("test1", 1).
 			PushHead("test2", 2).
 			PushTail("test3", 3)
@@ -79,6 +87,14 @@ func TestSingleListPopHead(t *testing.T) {
 func TestSingleListPopTail(t *testing.T) {
 	t.Run("success", func(t *testing.T) {
 		singleList := NewSingleList().
+			PopTail().
+			PushHead("test1", 1).
+			PopTail()
+		assert.Equal(t, 0, singleList.Length())
+		assert.Nil(t, singleList.head)
+		assert.Nil(t, singleList.tail)
+
+		singleList = singleList.
 			PushHead("test1", 1).
 			PushHead("test2", 2).
 			PushTail("test3", 3)
