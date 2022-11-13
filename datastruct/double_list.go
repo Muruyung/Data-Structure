@@ -34,18 +34,18 @@ func NewDoubleList() DoubleListService {
 
 // PushHead function for insert element from head
 func (data doubleListClient) PushHead(name string, age int) doubleListClient {
-	mahasiswa := &doubleListData{
+	tmpData := &doubleListData{
 		age:  age,
 		name: name,
 	}
 
 	if data.head == nil {
-		data.head = mahasiswa
-		data.tail = mahasiswa
+		data.head = tmpData
+		data.tail = tmpData
 	} else {
-		data.head.prev = mahasiswa
-		mahasiswa.next = data.head
-		data.head = mahasiswa
+		data.head.prev = tmpData
+		tmpData.next = data.head
+		data.head = tmpData
 	}
 	data.length++
 
@@ -54,18 +54,18 @@ func (data doubleListClient) PushHead(name string, age int) doubleListClient {
 
 // PushTail function for insert elemnt from tail
 func (data doubleListClient) PushTail(name string, age int) doubleListClient {
-	mahasiswa := &doubleListData{
+	tmpData := &doubleListData{
 		age:  age,
 		name: name,
 	}
 
 	if data.tail == nil {
-		data.head = mahasiswa
-		data.tail = mahasiswa
+		data.head = tmpData
+		data.tail = tmpData
 	} else {
-		data.tail.next = mahasiswa
-		mahasiswa.prev = data.tail
-		data.tail = mahasiswa
+		data.tail.next = tmpData
+		tmpData.prev = data.tail
+		data.tail = tmpData
 	}
 	data.length++
 
@@ -110,26 +110,26 @@ func (data doubleListClient) PopTail() doubleListClient {
 
 // PrintFromHead function for print all element from head
 func (data doubleListClient) PrintFromHead() {
-	mahasiswa := data.head
+	tmpData := data.head
 	fmt.Println("Double List Print from Head")
-	for mahasiswa != nil {
+	for tmpData != nil {
 		fmt.Println("=========================")
-		fmt.Printf("NAME: %s\n", mahasiswa.name)
-		fmt.Printf("AGE:  %d\n", mahasiswa.age)
-		mahasiswa = mahasiswa.next
+		fmt.Printf("NAME: %s\n", tmpData.name)
+		fmt.Printf("AGE:  %d\n", tmpData.age)
+		tmpData = tmpData.next
 	}
 	fmt.Println("=========================")
 }
 
 // PrintFromTail function for print all element from tail
 func (data doubleListClient) PrintFromTail() {
-	mahasiswa := data.tail
+	tmpData := data.tail
 	fmt.Println("Double List Print from Tail")
-	for mahasiswa != nil {
+	for tmpData != nil {
 		fmt.Println("=========================")
-		fmt.Printf("NAME: %s\n", mahasiswa.name)
-		fmt.Printf("AGE:  %d\n", mahasiswa.age)
-		mahasiswa = mahasiswa.prev
+		fmt.Printf("NAME: %s\n", tmpData.name)
+		fmt.Printf("AGE:  %d\n", tmpData.age)
+		tmpData = tmpData.prev
 	}
 	fmt.Println("=========================")
 }
