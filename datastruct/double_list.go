@@ -134,7 +134,7 @@ func (data doubleListClient) PrintFromTail() {
 	fmt.Println("=========================")
 }
 
-// Length function for get data.length of list
+// Length function for get length of list
 func (data doubleListClient) Length() int {
 	return data.length
 }

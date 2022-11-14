@@ -32,7 +32,7 @@ func NewSingleList() SingleListService {
 	}
 }
 
-// PushHead function for insert element from data.head
+// PushHead function for insert element from head
 func (data singleListClient) PushHead(name string, age int) singleListClient {
 	tmpData := &singleListData{
 		name: name,
@@ -51,7 +51,7 @@ func (data singleListClient) PushHead(name string, age int) singleListClient {
 	return data
 }
 
-// PushTail function for insert elemnt from data.tail
+// PushTail function for insert elemnt from tail
 func (data singleListClient) PushTail(name string, age int) singleListClient {
 	tmpData := &singleListData{
 		name: name,
@@ -125,7 +125,7 @@ func (data singleListClient) Print() {
 	fmt.Println("=========================")
 }
 
-// Length function for get data.length of list
+// Length function for get length of list
 func (data singleListClient) Length() int {
 	return data.length
 }
